@@ -7,7 +7,7 @@ const app = express();
 const server = http.createServer(app);
 
 app.use(cors({
-  origin: process.env.CLIENT_URL || "http://localhost:3000",
+  origin: process.env.CLIENT_URL || ["http://localhost:3000", "https://client-sandy-one-68.vercel.app"],
   credentials: true
 }));
 
@@ -21,7 +21,7 @@ app.get('/health', (req, res) => {
 
 const io = socketIo(server, {
   cors: {
-    origin: process.env.CLIENT_URL || "http://localhost:3000",
+    origin: process.env.CLIENT_URL || ["http://localhost:3000", "https://client-sandy-one-68.vercel.app"],
     methods: ["GET", "POST"],
     credentials: true
   }
